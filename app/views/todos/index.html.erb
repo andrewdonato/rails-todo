@@ -1,0 +1,14 @@
+<div class="todo-container">
+  <%= form_for :todo do |f|  %>
+    <%= f.text_field :description, placeholder: "What needs to be done BOI", id:"todo-box" %>
+  <% end %>
+  <br>
+  <% @todos.each do |todo| %>
+    <ul>
+      <%= todo.description %>
+      <%= form_tag(todo_path(todo), method: :delete) do %>
+        <%= submit_tag 'Destroy'%>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
